@@ -1,45 +1,36 @@
 ﻿trigger:
-- main
-- master
+  branches:
+    include:
+      - refs/tags/*
 
 pool:
   vmImage: 'windows-latest'
 
-variables:
-  buildConfiguration: 'Release'
-
 steps:
-
-# 1. Restore dependencies
-- task: DotNetCoreCLI@2
-  displayName: 'Restore'
+- task: UseDotNet@2
   inputs:
-    command: 'restore'
-    projects: '**/*.csproj'
+    packageType: 'sdk'
+    version: '8.x'
 
-# 2. Build project
-- task: DotNetCoreCLI@2
-  displayName: 'Build'
-  inputs:
-    command: 'build'
-    projects: '**/*.csproj'
-    arguments: '--configuration $(buildConfiguration)'
+- powershell: |
+    Write-Host "SourceBranchName: $(Build.SourceBranchName)"
+    $tag = "$(Build.SourceBranchName)"
+    $version = $tag.Replace("refs/tags/v","")
+    Write-Host "##vso[task.setvariable variable=Version]$version"
+  displayName: "Extract version from tag"
 
-# 3. Pack NuGet package
-- task: DotNetCoreCLI@2
-  displayName: 'Pack NuGet'
-  inputs:
-    command: 'pack'
-    packagesToPack: '**/*.csproj'
-    versioningScheme: 'off'
-    arguments: '--configuration $(buildConfiguration)'
-    outputDir: '$(Build.ArtifactStagingDirectory)'
+- script: dotnet restore
+  displayName: "Restore"
 
-# 4. Push to NuGet.org
+- script: dotnet build --configuration Release
+  displayName: "Build"
+
+- script: dotnet pack --configuration Release /p:PackageVersion=$(Version)
+  displayName: "Pack"
+
 - task: NuGetCommand@2
-  displayName: 'Push to NuGet.org'
   inputs:
     command: 'push'
-    packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
-    nuGetFeedType: 'external'
-    publishFeedCredentials: 'NuGetOrgServiceConnection'
+    packagesToPush: '**/*.nupkg'
+    publishVstsFeed: 'SampleSharedServicesApi'
+  displayName: "Publish to Azure Artifacts"
