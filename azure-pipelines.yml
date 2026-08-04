@@ -25,5 +25,5 @@ steps:
   inputs:
     command: 'push'
     packagesToPush: '**/*.nupkg'
-    publishVstsFeed: '4542e305-155b-442a-9e8e-15f57b2e15fe'
+    publishVstsFeed: 'SampleSharedServicesAPIFeed'
   displayName: "Publish to Azure Artifacts"
