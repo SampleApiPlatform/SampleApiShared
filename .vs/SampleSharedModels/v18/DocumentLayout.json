@@ -1,0 +1,45 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\mark_\\source\\repos\\SampleSharedModels_AzureDevOps\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{6E235A7D-6D60-4874-BEE2-2DFA5069B7EF}|SampleSharedModels.csproj|c:\\users\\mark_\\source\\repos\\samplesharedmodels_azuredevops\\azure-pipelines.yml||{06C066C6-04A2-4E5D-8202-439FD4234EF1}",
+      "RelativeMoniker": "D:0:0:{6E235A7D-6D60-4874-BEE2-2DFA5069B7EF}|SampleSharedModels.csproj|solutionrelative:azure-pipelines.yml||{06C066C6-04A2-4E5D-8202-439FD4234EF1}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "azure-pipelines.yml",
+              "DocumentMoniker": "C:\\Users\\mark_\\source\\repos\\SampleSharedModels_AzureDevOps\\azure-pipelines.yml",
+              "RelativeDocumentMoniker": "azure-pipelines.yml",
+              "ToolTip": "C:\\Users\\mark_\\source\\repos\\SampleSharedModels_AzureDevOps\\azure-pipelines.yml",
+              "RelativeToolTip": "azure-pipelines.yml",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAUwC0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003775|",
+              "WhenOpened": "2026-08-04T10:25:36.142Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

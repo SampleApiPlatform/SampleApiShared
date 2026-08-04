@@ -1,0 +1,45 @@
+﻿trigger:
+- main
+- master
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  buildConfiguration: 'Release'
+
+steps:
+
+# 1. Restore dependencies
+- task: DotNetCoreCLI@2
+  displayName: 'Restore'
+  inputs:
+    command: 'restore'
+    projects: '**/*.csproj'
+
+# 2. Build project
+- task: DotNetCoreCLI@2
+  displayName: 'Build'
+  inputs:
+    command: 'build'
+    projects: '**/*.csproj'
+    arguments: '--configuration $(buildConfiguration)'
+
+# 3. Pack NuGet package
+- task: DotNetCoreCLI@2
+  displayName: 'Pack NuGet'
+  inputs:
+    command: 'pack'
+    packagesToPack: '**/*.csproj'
+    versioningScheme: 'off'
+    arguments: '--configuration $(buildConfiguration)'
+    outputDir: '$(Build.ArtifactStagingDirectory)'
+
+# 4. Push to NuGet.org
+- task: NuGetCommand@2
+  displayName: 'Push to NuGet.org'
+  inputs:
+    command: 'push'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
+    nuGetFeedType: 'external'
+    publishFeedCredentials: 'NuGetOrgServiceConnection'

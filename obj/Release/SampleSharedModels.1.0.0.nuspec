@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>SampleSharedModels</id>
+    <version>1.0.0</version>
+    <authors>SampleSharedModels</authors>
+    <description>Package Description</description>
+    <repository type="git" commit="cf1e37446a0833dc00c9de755feaa613420b9d17" />
+    <dependencies>
+      <group targetFramework="net8.0" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\mark_\source\repos\SampleSharedModels_AzureDevOps\bin\Release\net8.0\SampleSharedModels.dll" target="lib\net8.0\SampleSharedModels.dll" />
+  </files>
+</package>
