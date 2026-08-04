@@ -15,7 +15,9 @@ steps:
 - powershell: |
     Write-Host "SourceBranchName: $(Build.SourceBranchName)"
     $tag = "$(Build.SourceBranchName)"
+    # Extract version: remove 'refs/tags/v'
     $version = $tag.Replace("refs/tags/v","")
+    Write-Host "Extracted version: $version"
     Write-Host "##vso[task.setvariable variable=Version]$version"
   displayName: "Extract version from tag"
 
