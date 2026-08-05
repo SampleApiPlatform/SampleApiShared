@@ -18,12 +18,12 @@ steps:
 - script: dotnet build --configuration Release
   displayName: "Build"
 
-- script: dotnet pack --configuration Release /p:PackageVersion=1.0.0
+- script: dotnet pack --configuration Release --output $(Build.ArtifactStagingDirectory)
   displayName: "Pack"
 
 - task: NuGetCommand@2
-  inputs:
-    command: 'push'
-    packagesToPush: '**/*.nupkg'
-    publishVstsFeed: 'd6cc5835-0683-4b38-9a20-10e92fd7b62a'
   displayName: "Publish to Azure Artifacts"
+  inputs:
+    command: push
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
+    publishVstsFeed: 'SampleSharedServicesAPIFeed'
