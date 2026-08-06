@@ -26,4 +26,6 @@ steps:
   inputs:
     command: push
     packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
-    publishVstsFeed: 'SampleSharedServicesAPIFeed'
+    #publishVstsFeed: 'SampleSharedServicesAPIFeed'
+    publishVstsFeed: 'd6cc5835-0683-4b38-9a20-10e92fd7b62a'
+
