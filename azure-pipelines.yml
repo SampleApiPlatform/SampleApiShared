@@ -1,35 +1,32 @@
 ﻿trigger:
-  branches:
-    include:
-      - master
+- main
 
 pool:
   vmImage: 'windows-latest'
 
 steps:
-- task: UseDotNet@2
+- task: DotNetCoreCLI@2
+  displayName: Restore
   inputs:
-    packageType: 'sdk'
-    version: '8.x'
+    command: restore
+    projects: '**/*.csproj'
 
-- script: dotnet restore
-  displayName: "Restore"
-
-- script: dotnet build --configuration Release
-  displayName: "Build"
-
-- script: dotnet pack --configuration Release --output $(Build.ArtifactStagingDirectory)
-  displayName: "Pack"
+- task: DotNetCoreCLI@2
+  displayName: Build
+  inputs:
+    command: build
+    projects: '**/*.csproj'
+    arguments: '--configuration Release'
 
 - task: CopyFiles@2
-  displayName: "Copy NuGet package to staging"
+  displayName: Copy NuGet package
   inputs:
     SourceFolder: '$(Build.SourcesDirectory)/bin/Release'
     Contents: '*.nupkg'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
 - task: NuGetCommand@2
-  displayName: "Publish to Azure Artifacts"
+  displayName: Publish to Azure Artifacts
   inputs:
     command: push
     nuGetFeedType: external
@@ -38,6 +35,3 @@ steps:
     publishFeedUrl: 'https://pkgs.dev.azure.com/jobsmacoro/SampleSharedServicesApi_AzureDevOps/_packaging/SampleSharedServicesAPIFeed/nuget/v3/index.json'
   env:
     SYSTEM_ACCESSTOKEN: $(System.AccessToken)
-
-
-
