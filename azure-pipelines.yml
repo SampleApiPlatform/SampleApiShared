@@ -5,11 +5,6 @@ pool:
   vmImage: 'windows-latest'
 
 steps:
-- task: NuGetAuthenticate@1
-  displayName: Authenticate to Azure Artifacts
-  inputs:
-    nuGetServiceConnections: 'SampleSharedServiceApi_NuGet_ServiceConnection'
-
 - task: DotNetCoreCLI@2
   displayName: Restore
   inputs:
@@ -41,5 +36,3 @@ steps:
     publishFeedUrl: 'https://pkgs.dev.azure.com/jobsmacoro/SampleSharedServicesApi_AzureDevOps/_packaging/SampleSharedServicesAPIFeed/nuget/v3/index.json'
   env:
     SYSTEM_ACCESSTOKEN: $(System.AccessToken)
-
-    #this is shit2
