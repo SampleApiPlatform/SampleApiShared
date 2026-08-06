@@ -35,3 +35,4 @@ steps:
     publishFeedUrl: 'https://pkgs.dev.azure.com/jobsmacoro/SampleSharedServicesApi_AzureDevOps/_packaging/SampleSharedServicesAPIFeed/nuget/v3/index.json'
   env:
     SYSTEM_ACCESSTOKEN: $(System.AccessToken)
+    #
