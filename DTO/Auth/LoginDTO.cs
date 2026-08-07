@@ -1,4 +1,4 @@
-namespace SampleSharedModels.DTO.Auth;
+namespace NuGet.SampleSharedModels.DTO.Auth;
 
 public class LoginDTO
 {

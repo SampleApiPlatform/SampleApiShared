@@ -1,6 +1,6 @@
 
 
-namespace SampleSharedModels.Results;
+namespace NuGet.SampleSharedModels.Results;
 
 public class ServiceResult<T>
 {

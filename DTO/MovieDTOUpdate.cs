@@ -1,4 +1,4 @@
-namespace SampleSharedModels.DTO;
+namespace NuGet.SampleSharedModels.DTO;
 
 public class MovieDTOUpdate
 {

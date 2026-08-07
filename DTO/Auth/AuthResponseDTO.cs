@@ -1,4 +1,4 @@
-namespace SampleSharedModels.DTO.Auth;
+namespace NuGet.SampleSharedModels.DTO.Auth;
 
 //This is what the client receives after a successful login
 public class AuthResponseDTO

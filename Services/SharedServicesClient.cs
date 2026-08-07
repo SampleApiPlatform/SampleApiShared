@@ -1,4 +1,4 @@
-﻿using SampleSharedModels.Interfaces;
+﻿using NuGet.SampleSharedModels.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 
-namespace SampleSharedModels.Services
+namespace NuGet.SampleSharedModels.Services
 {
     public class SharedServicesClient : ISharedServicesClient
     {
