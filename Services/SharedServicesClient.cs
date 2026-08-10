@@ -1,10 +1,5 @@
 ﻿using NuGet.SampleSharedModels.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http.Json;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 
 namespace NuGet.SampleSharedModels.Services

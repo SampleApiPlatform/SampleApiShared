@@ -8,7 +8,7 @@
     <IsPackable>true</IsPackable>
 
     <PackageId>SampleSharedModels</PackageId>
-    <Version>1.0.2</Version>
+    <Version>1.0.3</Version>
     <Authors>jobsmacoro</Authors>
     <Company>jobsmacoro</Company>
     <Description>Shared models for SampleAppApi</Description>
